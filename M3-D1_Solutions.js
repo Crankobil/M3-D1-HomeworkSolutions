@@ -114,16 +114,52 @@ console.log(integerSum([1,2,3]))
 9)
 Create a function to test whether an array of integers of length 2 contains 1 or a 3. 
 */
+const numOneOrThree = (numArrayCheck) => {
+    if (numArrayCheck.indexOf(1) != -1 || numArrayCheck.indexOf(3) != -1){
+        return true
+     } 
+     else
+     {
+        return false
+     }
+ }
 
+ console.log(numOneOrThree([2,5]))
 /*
 
 10)
-
 Create a function to test whether an array of integers of length 2 does not contain 1 or a 3
+*/
+const numOneOrThreeNot = (numArrayCheck) => {
+    if (numArrayCheck.indexOf(1) === -1 || numArrayCheck.indexOf(3) === -1){
+        return true
+     } 
+     else
+     {
+        return false
+     }
+ }
+
+ console.log(numOneOrThreeNot([2,5]))
+ /*
 
 11)
 
 Create a function to find the longest string from a given array of strings.
+*/
+const longestString = (array) => {
+    let index = 0; 
+    let elementLength = array[0].length;
+for(let i=1; i< array.length; i++) {
+    if(array[i].length > elementLength) {
+        index = i; elementLength = array[i].length;
+    }
+}
+return array[index];
+}
+
+console.log (longestString(["abc", "abcde", "abcd"]))
+/*
 
 12)
 
@@ -134,15 +170,63 @@ Types of angles:
     Right angle: An 90 degree angle.
     btuse angle: An angle between 90 and 180 degrees.
     Straight angle: A 180 degree angle.
+*/
+const findAngle = (angle) => {
+    if(angle < 90) {
+    return "Acute angle.";
+  }
+  if(angle === 90) {
+    return "Right angle.";
+  }
+  if(angle < 180) {
+    return "Obtuse angle.";
+  }
+  return "Straight angle.";
+}
+
+console.log(findAngle(70))
+
+/*
 
 13)
 
 Create a function to find the index of the greatest element of a given array of integers
+*/
+const greatestIndex = (arr) => {
+    if (arr.length === 0) {
+        return -1;
+    }
 
+    let max = arr[0];
+    let maxIndex = 0;
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+
+    return maxIndex;
+}
+console.log (greatestIndex([32, 64, 78, 24, 96]))
+/*
 14)
 
 Create a function to get the largest even number from an array of integers.
+*/
+const largestEven = (myArr) => {
+    myArr.sort((x, y) => y - x);
 
+    for (let i = 0; i < myArr.length; i++) {
+      if (myArr[i] % 2 == 0)
+        return myArr[i];
+      }
+}
+
+console.log (largestEven([20,300,700,653]))
+
+/*
 16)
 
 Create a function to check from two given integers, whether one is positive and another one is negative.
